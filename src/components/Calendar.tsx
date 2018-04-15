@@ -8,6 +8,7 @@ interface Props {
     name: string
     start: number
     end: number
+    color: null | string
   }>
 }
 
@@ -37,6 +38,7 @@ export default function Calendar(props: Props) {
                 style={{
                   top: event.startPercentage,
                   bottom: event.endPercentage,
+                  background: event.color || "grey",
                 }}
               >
                 {event.name}

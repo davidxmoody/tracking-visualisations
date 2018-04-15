@@ -20,6 +20,7 @@ interface State {
     name: string
     start: number
     end: number
+    color: null | string
   }>
   days: null | string[]
 }
