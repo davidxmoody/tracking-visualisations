@@ -20,10 +20,18 @@
   background: #eee;
 }
 
+.day--hovered {
+  background: yellow !important;
+}
+
 .event {
   position: absolute;
   left: 0;
   right: 0;
   background: red;
   overflow: hidden;
+}
+
+.event--hovered {
+  background: orange !important;
 }
