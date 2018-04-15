@@ -1,0 +1,24 @@
+.calendar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: stretch;
+  overflow-y: scroll;
+}
+
+.day {
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  border: 1px solid blue;
+}
+
+.event {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: red;
+}
