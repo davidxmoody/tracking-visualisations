@@ -16,6 +16,8 @@ export default function Calendar(props: Props) {
   return (
     <div className="calendar">
       {props.days.map(day => {
+        const weekday = moment(day).format("ddd")
+        const isWeekend =  weekday === "Sat" || weekday === "Sun"
         const dayStartNum = parseFloat(moment(day).format("X"))
         const dayEndNum = parseFloat(moment(day).add(1, "day").format("X"))
         const eventsForDay = props.events.filter(({start}) => {
@@ -31,7 +33,7 @@ export default function Calendar(props: Props) {
         })
 
         return (
-          <div key={day} className="day">
+          <div key={day} className={`day ${isWeekend ? "day--weekend" : ""}`}>
             {eventsWithPercentages.map(event => (
               <div
                 className="event"

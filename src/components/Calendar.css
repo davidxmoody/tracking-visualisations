@@ -16,6 +16,10 @@
   border: 1px solid blue;
 }
 
+.day--weekend {
+  background: #eee;
+}
+
 .event {
   position: absolute;
   left: 0;

@@ -3,7 +3,7 @@ import "./App.css"
 import Calendar from "./components/Calendar"
 import * as moment from "moment"
 
-const EVENTS_URL = "http://localhost:8114/scrubbed-data/atracker/events.json"
+const EVENTS_URL = "http://localhost:8114/events.json"
 
 function makeDays(startDate: string, endDate?: string): string[] {
   let day = moment(startDate)
