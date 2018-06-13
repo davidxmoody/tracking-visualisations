@@ -46,6 +46,7 @@ export default function Calendar(props: Props) {
 
               return (
                 <div
+                  key={`${event.start}-${event.name}`}
                   className={`event ${isHovered ? "event--hovered" : ""}`}
                   style={{
                     top: event.startPercentage,
