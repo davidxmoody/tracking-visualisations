@@ -1,5 +1,4 @@
 import * as React from "react"
-import "./App.css"
 import Calendar from "./components/Calendar"
 import * as moment from "moment"
 
@@ -54,20 +53,33 @@ export default class App extends React.Component<{}, State> {
 
   render() {
     if (!this.state.events || !this.state.days) {
-      return <em style={{opacity: 0.5}}>Loading...</em>
+      return (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <em style={{opacity: 0.5}}>Loading...</em>
+        </div>
+      )
     }
 
     return (
-      <div className="App">
-        <Calendar
-          days={this.state.days}
-          events={this.state.events}
-          hoveredDay={this.state.hoveredDay}
-          hoveredEvent={this.state.hoveredEvent}
-          setHoveredDay={(hoveredDay) => this.setState({hoveredDay})}
-          setHoveredEvent={(hoveredEvent) => this.setState({hoveredEvent})}
-        />
-      </div>
+      <Calendar
+        days={this.state.days}
+        events={this.state.events}
+        hoveredDay={this.state.hoveredDay}
+        hoveredEvent={this.state.hoveredEvent}
+        setHoveredDay={(hoveredDay) => this.setState({hoveredDay})}
+        setHoveredEvent={(hoveredEvent) => this.setState({hoveredEvent})}
+      />
     )
   }
 }
