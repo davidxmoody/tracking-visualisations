@@ -1,15 +1,11 @@
 import * as React from "react"
 import "./Calendar.css"
 import * as moment from "moment"
-import {Event} from "../App"
+import { Event } from "../App"
 
 interface Props {
   days: string[]
   events: Event[]
-  hoveredDay: null | string
-  hoveredEvent: null | Event
-  setHoveredDay: (day: null | string) => void
-  setHoveredEvent: (day: null | Event) => void
 }
 
 export default function Calendar(props: Props) {
@@ -35,30 +31,19 @@ export default function Calendar(props: Props) {
         return (
           <div
             key={day}
-            className={`day ${isWeekend ? "day--weekend" : ""} ${props.hoveredDay === day ? "day--hovered" : ""}`}
-            onMouseEnter={() => {
-              props.setHoveredDay(day)
-              props.setHoveredEvent(null)
-            }}
+            className={`day ${isWeekend ? "day--weekend" : ""}`}
           >
-            {eventsWithPercentages.map(event => {
-              const isHovered = props.hoveredEvent && props.hoveredEvent.start === event.start && props.hoveredEvent.end === event.end
-
-              return (
-                <div
-                  key={`${event.start}-${event.name}`}
-                  className={`event ${isHovered ? "event--hovered" : ""}`}
-                  style={{
-                    top: event.startPercentage,
-                    bottom: event.endPercentage,
-                    background: event.color || "grey",
-                  }}
-                  onMouseEnter={() => props.setHoveredEvent(event)}
-                >
-                  {event.name}
-                </div>
-              )
-            })}
+            {eventsWithPercentages.map(event => (
+              <div
+                key={event.start}
+                className="event"
+                style={{
+                  top: event.startPercentage,
+                  bottom: event.endPercentage,
+                  background: event.color || "grey",
+                }}
+              />
+            ))}
           </div>
         )
       })}

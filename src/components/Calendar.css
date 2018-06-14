@@ -31,7 +31,3 @@
   background: red;
   overflow: hidden;
 }
-
-.event--hovered {
-  background: orange !important;
-}

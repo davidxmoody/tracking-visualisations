@@ -15,7 +15,6 @@ function makeDays(startDate: string, endDate?: string): string[] {
 }
 
 export interface Event {
-  name: string
   start: number
   end: number
   color: null | string
@@ -24,8 +23,6 @@ export interface Event {
 interface State {
   events: null | Event[]
   days: null | string[]
-  hoveredDay: null | string
-  hoveredEvent: null | Event
 }
 
 export default class App extends React.Component<{}, State> {
@@ -34,8 +31,6 @@ export default class App extends React.Component<{}, State> {
     this.state = {
       events: null,
       days: null,
-      hoveredDay: null,
-      hoveredEvent: null,
     }
   }
 
@@ -75,10 +70,6 @@ export default class App extends React.Component<{}, State> {
       <Calendar
         days={this.state.days}
         events={this.state.events}
-        hoveredDay={this.state.hoveredDay}
-        hoveredEvent={this.state.hoveredEvent}
-        setHoveredDay={(hoveredDay) => this.setState({hoveredDay})}
-        setHoveredEvent={(hoveredEvent) => this.setState({hoveredEvent})}
       />
     )
   }
