@@ -43,7 +43,9 @@ export default class App extends React.Component<{}, State> {
   async componentDidMount() {
     try {
       const events = await fetch(EVENTS_URL).then(res => res.json())
-      const days = makeDays(moment(events[0].start * 1000).format("YYYY-MM-DD"))
+      const startDate = moment(events[0].start * 1000).format("YYYY-MM-DD")
+      const endDate = moment(events[events.length - 1].end * 1000).format("YYYY-MM-DD")
+      const days = makeDays(startDate, endDate)
       this.setState({events, days})
     } catch (e) {
       window.alert(e)
